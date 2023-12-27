@@ -1,3 +1,22 @@
+# OS Info
+
+```
+PRETTY_NAME="Ubuntu 22.04.3 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.3 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+```
+
+# Setup Server
+```
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update -y
 sudo apt install linux-headers-$(uname -r) -y
@@ -28,4 +47,4 @@ sudo systemctl  enable mysql
 sudo systemctl  enable redis-server
 sudo systemctl  enable php8.1-fpm
 sudo systemctl  enable apache2
-
+```
