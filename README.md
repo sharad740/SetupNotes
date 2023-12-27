@@ -1,3 +1,5 @@
+# Install Frappe ErpNext 
+```
 echo "Adding PPA Repo" && sudo add-apt-repository ppa:deadsnakes/ppa
 
 echo "Updating System Repo List" && sudo apt-get update -y 
@@ -81,7 +83,9 @@ sudo systemctl  enable redis-server
 sudo systemctl  enable php8.1-fpm
 
 
-
+```
+# Version 13
+```
 cd ~/
 
 bench init frappe-13 --frappe-branch version-13 --python /usr/bin/python3.8
@@ -94,7 +98,10 @@ bench get-app https://github.com/frappe/erpnext --branch version-13 && \
 
 bench new-site sajha.erp --db-name='ERP Branch 13' --install-app erpnext --set-default --db-root-password testing321 --force --admin-password testing321 --verbose
 
+```
 
+# Version 14
+```
 
 cd ~/
 
@@ -109,7 +116,11 @@ bench get-app https://github.com/frappe/erpnext --branch version-14 && \
 bench new-site sajha.erp --db-name='ERP Branch 14' --install-app erpnext --set-default --db-root-password testing321 --force --admin-password testing321 --verbose
 
 
+```
 
+# Version 15
+
+```
 cd ~/
 
 nvm use 18
@@ -126,17 +137,19 @@ bench new-site sajha.erp --db-name='ERP Branch 15' --install-app erpnext --set-d
 
 
 
-
+```
 
 # Set bench config maintenance_mode to false 
 
+```
 bench set-config maintenance_mode false
-
+```
 
 
 # Setup supervisor in frappe
-
+```
 bench setup supervisor
 
 bench update --no-backup --reset
 
+```
