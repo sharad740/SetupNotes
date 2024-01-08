@@ -48,3 +48,36 @@ sudo systemctl  enable redis-server
 sudo systemctl  enable php8.1-fpm
 sudo systemctl  enable apache2
 ```
+
+Apache site-available/successbusiness.com.conf file:
+```
+<VirtualHost *:80>
+    # ServerName yourdomain.com  # Replace with your actual domain name
+    WSGIDaemonProcess success_business python-home=/var/www/successbusiness.com/.venv python-path=/var/www/successbusiness.com/.venv/bin/python3
+    WSGIProcessGroup success_business
+    WSGIScriptAlias / /var/www/successbusiness.com/success_business/passenger_wsgi.py
+    DocumentRoot /var/www/successbusiness.com/public_html
+    
+    <Directory /var/www/successbusiness.com/success_business>
+        <Files passenger_wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
+
+    Alias /media /var/www/successbusiness.com/public_html/media/
+    Alias /assets /var/www/successbusiness.com/public_html/assets/
+    
+    <Directory /var/www/successbusiness.com/public_html/assets>
+        Require all granted
+    </Directory>
+
+    <Directory /var/www/successbusiness.com/public_html/media>
+        Require all granted
+    </Directory>   
+
+    ErrorLog ${APACHE_LOG_DIR}/success_error.log
+    CustomLog ${APACHE_LOG_DIR}/success_access.log combined
+
+</VirtualHost>
+
+```
